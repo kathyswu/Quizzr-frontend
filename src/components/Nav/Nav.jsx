@@ -6,8 +6,7 @@ function Nav(props) {
   return (
     <div className="nav">
       <section>
-        <img src="" />
-        <Link to="">Quizzr</Link>
+        <Link to="" className="logo"><img src="https://i.imgur.com/spEqEvR.png" /></Link>
       </section>
       <section>
         <Link to="">Login</Link>

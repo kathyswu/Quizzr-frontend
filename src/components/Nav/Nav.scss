@@ -1,17 +1,25 @@
+@use "../../variables" as v;
+
 .nav {
   display: flex;
   justify-content: space-between;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    139deg,
-    rgba(0, 0, 0, 1) 7%,
-    rgba(30, 34, 43, 1) 24%
-  );
-  height: 40px;
+  height: 50px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  background: v.$base;
+  background: linear-gradient(139deg, v.$base 7%, v.$dark 24%);
+  color: v.$highlight;
+  border-bottom: 1px solid lighten(v.$base, 5%);
 
-  img {
-    height: 40px;
-    width: 70px;
+  .logo {
+    text-decoration: none;
+    padding: 0;
+    gap: 0;
+
+    img {
+      height: 50px;
+      width: 140px;
+    }
   }
 
   section {
@@ -23,11 +31,11 @@
   }
 
   a {
-    color: rgba(189, 187, 185, 1);
     text-decoration: none;
     font-size: 18px;
     padding: 10px;
     font-weight: bold;
     gap: 5px;
+    color: v.$highlight;
   }
 }

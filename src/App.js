@@ -1,7 +1,7 @@
 import React from "react";
 import Routes from "./config/routes";
 
-import "./App.css";
+import "./App.scss";
 
 import Nav from "./components/Nav/Nav";
 
