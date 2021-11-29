@@ -1,0 +1,33 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    139deg,
+    rgba(0, 0, 0, 1) 7%,
+    rgba(30, 34, 43, 1) 24%
+  );
+  height: 40px;
+
+  img {
+    height: 40px;
+    width: 70px;
+  }
+
+  section {
+    display: flex;
+  }
+
+  i {
+    font-size: 18px;
+  }
+
+  a {
+    color: rgba(189, 187, 185, 1);
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    font-weight: bold;
+    gap: 5px;
+  }
+}
