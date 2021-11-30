@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Auth from "../../models/auth";
 import User from "../../models/user";
 
-import "./auth.scss";
+import {login_form_container, gradient_border, login_form, button} from "./auth.module.scss";
 
 // Recoil
 import { userState } from "../../recoil/user";
@@ -31,34 +31,33 @@ function Login(props) {
     });
   }
 
+  const formclasses = `${login_form_container} ${gradient_border}`;
   return (
-    <div className='form-container gradient-border'>
+    <div className={formclasses}>
       <h3>Login</h3>
       {error && <h3 style={{ color: "red" }}>{error}</h3>}
-      <form onSubmit={handleSubmit}>
-          <label className='label' htmlFor='email'>
+      <form onSubmit={handleSubmit} className={login_form}>
+          <label htmlFor='email'>
             Email
           </label>
           <input
-            className='input'
             type='text'
             name='email'
             placeholder='email@email.com'
             onChange={e => setEmail(e.target.value)}
             value={email}
           />
-          <label className='label' htmlFor='password'>
+          <label htmlFor='password'>
             Password
           </label>
           <input
-            className='input'
             type='password'
             name='password'
             placeholder='********'
             onChange={e => setPassword(e.target.value)}
             value={password}
           />
-        <input className='button' type='submit' value='Login' />
+        <input className={button} type='submit' value='Login' />
       </form>
     </div>
   );
