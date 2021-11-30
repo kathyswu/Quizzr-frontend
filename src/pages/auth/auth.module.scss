@@ -3,7 +3,7 @@
 .login_form_container {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 200px 300px;
+  grid-template-rows: auto;
   width: 50%;
   margin: 0 auto;
   border-radius: 20px;
@@ -105,14 +105,15 @@
     background: lighten(v.$accent, 10%);
     border: 1px solid darken(v.$highlight, 30%);
     box-shadow: 0px 0px 4px 0px v.$highlight;
-    font-family: "Arial Black", sans-serif;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
   }
 }
 
 .register_form_container {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 200px 400px;
+  grid-template-rows: auto;
   width: 50%;
   margin: 0 auto;
   border-radius: 20px;
@@ -214,7 +215,8 @@
     background: lighten(v.$accent, 10%);
     border: 1px solid darken(v.$highlight, 30%);
     box-shadow: 0px 0px 4px 0px v.$highlight;
-    font-family: "Arial Black", sans-serif;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
   }
 }
 // Gradient Border by @alphardex on CodePen

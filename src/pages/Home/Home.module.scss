@@ -16,23 +16,22 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 230px 300px;
+  grid-template-rows: 60% 20%;
   justify-content: center;
   align-items: center;
   background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
   width: 80%;
-  height: 60%;
   border-radius: 10px;
 }
 
 // Gradient Border by @alphardex on CodePen
 // gradient: https://www.gradientmagic.com/collection/rainbowstandard
 .gradient_border {
-  --border-width: 3px;
+  --border-width: 4px;
 
   position: relative;
   width: 80%;
-  height: 60%;
+  height: 80%;
   font-size: 2.5rem;
   color: v.$text;
   background-color: darken(v.$base, 5%);
@@ -87,23 +86,23 @@
     position: absolute;
     opacity: 0;
     cursor: pointer;
-    height: 150px;
-    width: 150px;
+    height: 160px;
+    width: 160px;
     z-index: 100;
     margin-left: -75px;
   }
 
   div {
     position: relative;
-    height: 150px;
-    width: 150px;
+    height: 160px;
+    width: 160px;
     background: #18191f;
     color: #555;
     display: flex;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 90px;
+    font-size: 100px;
     cursor: pointer;
     margin: 0 4px;
     border-radius: 20px;
@@ -131,156 +130,92 @@
   }
 }
 
-// Bouncing Words Animation by @arlinacode on CodePen for banner element
-$darkertext: darken(v.$text, 40%);
-
-.bouncing_words {
-  h1 {
-    //font-family: "Luckiest Guy", cursive;
-    font-family: "Poppins", sans-serif;
-    cursor: default;
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100px;
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-    letter-spacing: 20px;
-    line-height: 100px;
-  }
-
-  h1 span {
-    position: relative;
-    top: 20px;
-    display: inline-block;
-    animation: bounce 1s ease infinite alternate;
-    -webkit-animation: bounce 1s ease infinite alternate;
-    font-size: 80px;
-    color: v.$highlight;
-    text-shadow: 0 1px 0 $darkertext, 0 2px 0 $darkertext, 0 3px 0 $darkertext,
-      0 4px 0 $darkertext, 0 5px 0 $darkertext, 0 6px 0 transparent,
-      0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent,
-      0 10px 10px rgba(0, 0, 0, 0.4);
-  }
-
-  h1 span:nth-child(2) {
-    animation-delay: 0.1s;
-    -webkit-animation-delay: 0.1s;
-  }
-
-  h1 span:nth-child(3) {
-    animation-delay: 0.2s;
-    -webkit-animation-delay: 0.2s;
-  }
-
-  h1 span:nth-child(4) {
-    animation-delay: 0.3s;
-    -webkit-animation-delay: 0.3s;
-  }
-
-  h1 span:nth-child(5) {
-    animation-delay: 0.4s;
-    -webkit-animation-delay: 0.4s;
-  }
-
-  h1 span:nth-child(6) {
-    animation-delay: 0.5s;
-    -webkit-animation-delay: 0.5s;
-  }
-
-  h1 span:nth-child(7) {
-    animation-delay: 0.6s;
-    -webkit-animation-delay: 0.6s;
-  }
-
-  h1 span:nth-child(8) {
-    animation-delay: 0.7s;
-    -webkit-animation-delay: 0.7s;
-  }
-
-  h1 span:nth-child(9) {
-    animation-delay: 0.2s;
-    -webkit-animation-delay: 0.2s;
-  }
-
-  h1 span:nth-child(10) {
-    animation-delay: 0.3s;
-    -webkit-animation-delay: 0.3s;
-  }
-
-  h1 span:nth-child(11) {
-    animation-delay: 0.4s;
-    -webkit-animation-delay: 0.4s;
-  }
-
-  h1 span:nth-child(12) {
-    animation-delay: 0.5s;
-    -webkit-animation-delay: 0.5s;
-  }
-
-  h1 span:nth-child(13) {
-    animation-delay: 0.1s;
-    -webkit-animation-delay: 0.1s;
-  }
-
-  h1 span:nth-child(14) {
-    animation-delay: 0.2s;
-    -webkit-animation-delay: 0.2s;
-  }
-
-  /* ANIMATION of Bouncing Words */
-  @keyframes bounce {
-    100% {
-      top: -20px;
-      text-shadow: 0 1px 0 $darkertext, 0 2px 0 $darkertext, 0 3px 0 $darkertext,
-        0 4px 0 $darkertext, 0 5px 0 $darkertext, 0 6px 0 $darkertext,
-        0 7px 0 $darkertext, 0 8px 0 $darkertext, 0 9px 0 $darkertext,
-        0 50px 25px rgba(0, 0, 0, 0.2);
-    }
-  }
-  @-webkit-keyframes bounce {
-    100% {
-      top: -20px;
-      text-shadow: 0 1px 0 $darkertext, 0 2px 0 $darkertext, 0 3px 0 $darkertext,
-        0 4px 0 $darkertext, 0 5px 0 $darkertext, 0 6px 0 $darkertext,
-        0 7px 0 $darkertext, 0 8px 0 $darkertext, 0 9px 0 $darkertext,
-        0 50px 25px rgba(0, 0, 0, 0.2);
-    }
-  }
-}
-
 // Play now text
 // CSS Neon Sign Effect by @ananyaneogi on CodePen
 @import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
 
-.playnow {
+.menu {
+  a {
+    text-decoration: none;
+  }
+
   h2 {
-    font-size: 120px;
-    line-height: calc(20px + 20vh);
-    text-shadow: 0 0 5px rgb(187, 145, 5), 0 0 15px rgb(187, 145, 5),
-      0 0 25px rgb(187, 145, 5), 0 0 20px rgb(187, 145, 5),
+    font-size: 110px;
+    line-height: calc(20px + 18vh);
+    text-shadow: 0 0 5px rgb(63, 63, 63), 0 0 15px rgb(63, 63, 63),
+      0 0 25px rgb(63, 63, 63), 0 0 20px rgb(63, 63, 63),
       0 0 30px rgb(44, 44, 44), 0 0 80px rgb(44, 44, 44),
       0 0 80px rgb(44, 44, 44);
-    color: rgb(197, 178, 115);
+    color: rgb(109, 109, 109);
     font-family: "Sacramento", cursive;
     text-align: center;
-    animation: blink 12s infinite;
-    -webkit-animation: blink 12s infinite;
-    background-color: v.$base;
-    width: 35%;
+    width: 40%;
     margin: 0 auto;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 40px;
-    border: 5px solid v.$dark;
-    background: #18191f;
-    box-shadow: -1px -1px 4px rgba(255, 255, 255, 0.05),
-      4px 4px 6px rgba(0, 0, 0, 0.2),
-      inset -1px -1px 4px rgba(255, 255, 255, 0.05),
-      inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+  }
+
+  h2:hover {
+    font-size: 115px;
+    line-height: calc(20px + 18vh);
+    text-shadow: 0 0 5px rgb(209, 161, 2), 0 0 15px rgb(209, 161, 2),
+      0 0 25px rgb(209, 161, 2), 0 0 20px rgb(209, 161, 2),
+      0 0 30px rgb(44, 44, 44), 0 0 80px rgb(44, 44, 44),
+      0 0 80px rgb(44, 44, 44);
+    color: #fff6a9;
+    font-family: "Sacramento", cursive;
+    text-align: center;
+    animation: blink 6s infinite;
+    -webkit-animation: blink 6s infinite;
+    width: 40%;
+    margin: 0 auto;
+  }
+
+  @-webkit-keyframes blink {
+    20%,
+    24%,
+    55% {
+      color: #111;
+      text-shadow: none;
+    }
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+      text-shadow: 0 0 5px rgb(209, 161, 2), 0 0 15px rgb(209, 161, 2),
+        0 0 25px rgb(209, 161, 2), 0 0 20px rgb(209, 161, 2),
+        0 0 30px rgb(44, 44, 44), 0 0 80px rgb(44, 44, 44),
+        0 0 80px rgb(44, 44, 44);
+      color: #fff6a9;
+    }
+  }
+
+  @keyframes blink {
+    20%,
+    24%,
+    55% {
+      color: #111;
+      text-shadow: none;
+    }
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+      text-shadow: 0 0 5px rgb(209, 161, 2), 0 0 15px rgb(209, 161, 2),
+        0 0 25px rgb(209, 161, 2), 0 0 20px rgb(209, 161, 2),
+        0 0 30px rgb(44, 44, 44), 0 0 80px rgb(44, 44, 44),
+        0 0 80px rgb(44, 44, 44);
+      color: #fff6a9;
+    }
   }
 }

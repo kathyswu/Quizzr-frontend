@@ -16,7 +16,6 @@ function Login(props) {
   const setUser = useSetRecoilState(userState);
 
   function handleSubmit(event) {
-    // Handle submit
     event.preventDefault();
 
     Auth.login({email, password}).then(json => {
@@ -35,7 +34,7 @@ function Login(props) {
   return (
     <div className={formclasses}>
       <h3>Login</h3>
-      {error && <h3 style={{ color: "red" }}>{error}</h3>}
+      {error && <h5 style={{ color: "red", marginBottom: "30px" }}>{error}</h5>}
       <form onSubmit={handleSubmit} className={login_form}>
           <label htmlFor='email'>
             Email

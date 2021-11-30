@@ -4,11 +4,6 @@ import Auth from "../../models/auth";
 
 import {register_form_container, gradient_border, register_form, button} from "./auth.module.scss";
 
-// Recoil
-import { userState } from "../../recoil/user";
-import { useSetRecoilState } from "recoil";
-
-
 function Register(props) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -27,15 +22,15 @@ function Register(props) {
   const formclasses = `${register_form_container} ${gradient_border}`;
   return (
     <div className={formclasses}>
-      <h3>Register now</h3>
-      {error && <h3 style={{ color: "red" }}>{error}</h3>}
+      <h3>Register</h3>
+      {error && <h5 style={{ color: "red", marginBottom: "30px"}}>{error}</h5>}
       <form onSubmit={handleSubmit} className={register_form}>
           <label htmlFor='username'>
             Username
           </label>
           <input
             className='input'
-            placeholder='Jasper Smith'
+            placeholder='username123'
             type='text'
             name='username'
             onChange={e => setUsername(e.target.value)}

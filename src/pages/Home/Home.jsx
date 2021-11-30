@@ -1,25 +1,36 @@
-import { home, banner, gradient_border, banner_ul, bouncing_words, playnow }  from "./Home.module.scss";
+import { home, banner, gradient_border, banner_ul, menu }  from "./Home.module.scss";
+import { useEffect } from "react";
+
+import { Link } from "react-router-dom";
+
+// Recoil
+import { useRecoilState } from "recoil";
+import { userState} from "../../recoil/user";
+
+import UserModel from "../../models/user";
 
 const banner_classes = `${banner} ${gradient_border}`;
 
-const Home = () => {
+function Home(props) {
+  const [user, setUser] = useRecoilState(userState);
+
+  //componentWillMount
+  useEffect(function() {
+    if(localStorage.uid) {
+      UserModel.show().then(json => {
+        setUser(json.user);
+      });
+    }
+  }, []);
+
+  const logout = () => {
+    setUser(null);
+    localStorage.clear();
+  };
+
   return (
     <div className={home}>
         <div className={banner_classes}>
-          <div className={bouncing_words}>
-            <h1>
-              <span>W</span>
-              <span>E</span>
-              <span>L</span>
-              <span>C</span>
-              <span>O</span>
-              <span>M</span>
-              <span>E</span>
-              <br />
-              <span>T</span>
-              <span>O</span>
-            </h1>
-          </div>
           <ul className={banner_ul}>
             <li>
               <input type="checkbox" defaultChecked/>
@@ -46,11 +57,23 @@ const Home = () => {
               <div>R</div>
             </li>
           </ul>
-        </div>
-        <div className={playnow}>
-          <h2>
+        <div className={menu}>
+          <Link to="/login"><h2>
             play now
-          </h2>
+          </h2></Link>
+
+          {user ? (
+            <h2 onClick={logout}>
+              logout
+            </h2>
+          ) : (
+            <Link to="/register"><h2>
+              register
+              
+            </h2></Link>
+          )}
+
+        </div>
         </div>
     </div>
   );

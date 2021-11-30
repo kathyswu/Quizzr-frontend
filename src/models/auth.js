@@ -1,7 +1,7 @@
 import { API_URL_AUTH as url } from "../constants";
 
 class Auth {
-  /**
+  /** Register
    * @description register function
    * @param {*} data
    * @returns json promise
@@ -16,7 +16,7 @@ class Auth {
     }).then((response) => response.json());
   }
 
-  /**
+  /** Login
    * @description logs in user and creates a JWT (token)
    * @param {*} data
    * @returns json promise with a token
