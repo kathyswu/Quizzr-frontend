@@ -20,9 +20,58 @@
   justify-content: center;
   align-items: center;
   background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-  width: 70%;
+  width: 80%;
   height: 60%;
-  border-radius: 80px;
+  border-radius: 10px;
+}
+
+// Gradient Border by @alphardex on CodePen
+// gradient: https://www.gradientmagic.com/collection/rainbowstandard
+.gradient-border-home {
+  --border-width: 3px;
+
+  position: relative;
+  width: 80%;
+  height: 60%;
+  font-size: 2.5rem;
+  color: v.$text;
+  background-color: darken(v.$base, 5%);
+  box-shadow: -1px -1px 4px rgba(255, 255, 255, 0.05),
+    4px 4px 6px rgba(0, 0, 0, 0.2),
+    inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+    inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+  }
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 // Glowing Box Effect by @prathkum on CodePen for banner element
@@ -83,8 +132,6 @@ ul {
 }
 
 // Bouncing Words Animation by @arlinacode on CodePen for banner element
-@import url("https://fonts.googleapis.com/css?family=Luckiest+Guy");
-
 $darkertext: darken(v.$text, 40%);
 
 h1 {
@@ -208,9 +255,6 @@ h1 span:nth-child(14) {
 // CSS Neon Sign Effect by @ananyaneogi on CodePen
 @import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
 
-$lightpink: lighten(v.$accent, 10%);
-$darkpink: darken(v.$accent, 50%);
-
 h2 {
   font-size: 120px;
   line-height: calc(20px + 20vh);
@@ -256,10 +300,6 @@ h2 {
       0 0 30px rgb(44, 44, 44), 0 0 80px rgb(44, 44, 44),
       0 0 80px rgb(44, 44, 44);
     color: rgb(197, 178, 115);
-    /*color: $lightpink;
-    text-shadow: 0 0 5px v.$accent, 0 0 15px v.$accent, 0 0 25px v.$accent,
-      0 0 20px v.$accent, 0 0 30px $darkpink, 0 0 80px $darkpink,
-      0 0 80px $darkpink;*/
   }
 }
 
@@ -284,9 +324,5 @@ h2 {
       0 0 30px rgb(44, 44, 44), 0 0 80px rgb(44, 44, 44),
       0 0 80px rgb(44, 44, 44);
     color: rgb(197, 178, 115);
-    /*color: $lightpink;
-    text-shadow: 0 0 5px v.$accent, 0 0 15px v.$accent, 0 0 25px v.$accent,
-      0 0 20px v.$accent, 0 0 30px $darkpink, 0 0 80px $darkpink,
-      0 0 80px $darkpink;*/
   }
 }

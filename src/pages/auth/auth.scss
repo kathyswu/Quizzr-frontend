@@ -1,0 +1,159 @@
+@use "../../variables" as v;
+
+.form-container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 200px 300px;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 40px 80px;
+
+  // CSS Neon Sign Effect by @ananyaneogi on CodePen
+  $lightpink: lighten(v.$accent, 10%);
+  $darkpink: darken(v.$accent, 50%);
+
+  h3 {
+    font-size: 100px;
+    line-height: calc(20px + 20vh);
+    text-shadow: 0 0 5px #555, 0 0 15px #555, 0 0 25px #555, 0 0 20px #555,
+      0 0 30px rgb(44, 44, 44), 0 0 80px rgb(44, 44, 44),
+      0 0 80px rgb(44, 44, 44);
+    color: $lightpink;
+    font-family: "Sacramento", cursive;
+    text-align: center;
+    animation: blink 12s infinite;
+    -webkit-animation: blink 12s infinite;
+    margin: 0 auto;
+
+    @-webkit-keyframes blink {
+      20%,
+      24%,
+      55% {
+        color: #111;
+        text-shadow: none;
+      }
+
+      0%,
+      19%,
+      21%,
+      23%,
+      25%,
+      54%,
+      56%,
+      100% {
+        color: $lightpink;
+        text-shadow: 0 0 5px v.$accent, 0 0 15px v.$accent, 0 0 25px v.$accent,
+          0 0 20px v.$accent, 0 0 30px $darkpink, 0 0 80px $darkpink,
+          0 0 80px $darkpink;
+      }
+    }
+
+    @keyframes blink {
+      20%,
+      24%,
+      55% {
+        color: #111;
+        text-shadow: none;
+      }
+
+      0%,
+      19%,
+      21%,
+      23%,
+      25%,
+      54%,
+      56%,
+      100% {
+        color: $lightpink;
+        text-shadow: 0 0 5px v.$accent, 0 0 15px v.$accent, 0 0 25px v.$accent,
+          0 0 20px v.$accent, 0 0 30px $darkpink, 0 0 80px $darkpink,
+          0 0 80px $darkpink;
+      }
+    }
+  }
+}
+
+form {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 30px;
+
+  .label {
+    padding: 20px;
+    grid-column: 1 / 1;
+    font-size: 30px;
+    text-align: left;
+  }
+
+  .input {
+    padding: 20px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+
+  .button {
+    grid-column: 1 / span 2;
+    font-size: 32px;
+    border-radius: 10px;
+    color: rgb(47, 47, 47);
+    width: 40%;
+    margin: 0 auto;
+    background: lighten(v.$accent, 10%);
+    border: 1px solid darken(v.$highlight, 30%);
+    box-shadow: 0px 0px 4px 0px v.$highlight;
+    font-family: "Arial Black", sans-serif;
+  }
+}
+
+// Gradient Border by @alphardex on CodePen
+// gradient: https://www.gradientmagic.com/collection/rainbowstandard
+.gradient-border {
+  --border-width: 3px;
+
+  position: relative;
+  width: 50%;
+  height: 70%;
+  font-size: 2.5rem;
+  color: v.$text;
+  background-color: darken(v.$base, 5%);
+  box-shadow: -1px -1px 4px rgba(255, 255, 255, 0.05),
+    4px 4px 6px rgba(0, 0, 0, 0.2),
+    inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+    inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-width);
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+  }
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}

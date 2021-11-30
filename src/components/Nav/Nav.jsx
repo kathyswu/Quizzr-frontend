@@ -9,8 +9,8 @@ function Nav(props) {
         <Link to="" className="logo"><img src="https://i.imgur.com/spEqEvR.png" /></Link>
       </section>
       <section>
-        <Link to="">Login</Link>
-        <Link to="">Register</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
       </section>
     </div>
   );
