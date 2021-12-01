@@ -4,20 +4,10 @@ import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/user";
 
-import UserModel from "../../models/user";
-
 import "./Nav.scss";
 
 function Nav(props) {
   const [user, setUser] = useRecoilState(userState);
-
-  useEffect(function() {
-    if(localStorage.uid) {
-      UserModel.show().then(json => {
-        setUser(json.user);
-      });
-    }
-  }, []);
 
   const logout = () => {
     setUser(null);
@@ -27,13 +17,14 @@ function Nav(props) {
   return (
     <div className="nav">
       <section>
-        <Link to="" className="logo"><img src="https://i.imgur.com/spEqEvR.png" /></Link>
+        <Link to="/" className="logo"><img src="https://i.imgur.com/spEqEvR.png" /></Link>
       </section>
       {user ? (
         <section>
-          <Link to="/">Play</Link>
-          <Link to="/">Profile</Link>
-          <Link onClick={logout}>Logout</Link>
+          <Link to="/browse">Play</Link>
+          <Link to={`/user/${user._id}`}>{user.username}</Link>
+          <img className="nav_avatar"src={user.avatar} alt={user.username} />
+          <Link to="" onClick={logout}>Logout</Link>
         </section>
       ) : (
         <section>

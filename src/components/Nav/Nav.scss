@@ -34,8 +34,15 @@
     text-decoration: none;
     font-size: 18px;
     padding: 10px;
+    margin-right: 10px;
     font-weight: bold;
     gap: 5px;
     color: v.$highlight;
+    text-transform: capitalize;
+  }
+
+  .nav_avatar {
+    margin-left: -10px;
+    clip-path: circle(40% at 50% 50%);
   }
 }

@@ -24,7 +24,7 @@ function Login(props) {
         localStorage.setItem("uid", json.token);
         User.show().then(json => {
           setUser(json.user);
-          props.history.push("/");
+          props.history.push(`/user/${json.user._id}`);
         });
       }
     });

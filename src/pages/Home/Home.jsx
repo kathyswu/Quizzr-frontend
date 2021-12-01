@@ -58,23 +58,19 @@ function Home(props) {
             </li>
           </ul>
         <div className={menu}>
-          <Link to="/login"><h2>
-            play now
-          </h2></Link>
-
           {user ? (
-            <h2 onClick={logout}>
-              logout
-            </h2>
+            <div>
+              <Link to="/browse"><h2>play now</h2></Link>
+              <h2 onClick={logout}>logout</h2>
+            </div>
           ) : (
-            <Link to="/register"><h2>
-              register
-              
-            </h2></Link>
+            <div>
+              <Link to="/login"><h2>play now</h2></Link>
+              <Link to="/register"><h2>register</h2></Link>
+            </div>
           )}
-
         </div>
-        </div>
+      </div>
     </div>
   );
 }
