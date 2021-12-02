@@ -135,6 +135,11 @@
         color: white;
         font-size: 28px;
       }
+
+      &.right {
+        border: 5px solid rgba(0, 207, 17, 0.685);
+        background-color: rgba(9, 184, 47, 0.925);
+      }
     }
   }
 }
