@@ -1,0 +1,140 @@
+@use "../../variables" as v;
+
+.create {
+  width: 80%;
+  margin: 0 auto;
+
+  p {
+    color: white;
+    font-size: 24px;
+    font-family: "Outfit", sans-serif;
+    background-color: rgba(90, 90, 90, 0.637);
+    padding: 5px;
+  }
+
+  i {
+    font-size: 4em;
+    margin-top: 20px;
+    color: v.$highlight;
+    background-color: white;
+    border-radius: 50px;
+  }
+}
+
+.create_form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto;
+  padding: 20px 40px;
+  gap: 10px;
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: right;
+  align-items: center;
+
+  h3 {
+    grid-column: 1 / span 2;
+    padding: 10px;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  label {
+    margin-right: 20px;
+  }
+
+  input {
+    font-size: 22px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+}
+
+.question {
+  width: 100%;
+  color: v.$text;
+  margin-top: 30px;
+  font-family: "Outfit", sans-serif;
+
+  i {
+    font-size: 4em;
+    margin: 10px;
+    color: v.$accent;
+    background-color: white;
+    border-radius: 50px;
+  }
+
+  .question_container {
+    width: 80%;
+    border: 4px outset v.$highlight;
+    border-radius: 30px;
+    background-color: v.$base;
+    margin: 0 auto;
+
+    h3 {
+      grid-column: 1 / span 2;
+      padding: 10px;
+      font-size: 32px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    .question_form {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      grid-template-rows: auto;
+      padding: 20px 40px;
+      gap: 10px;
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+      align-items: center;
+
+      input {
+        font-size: 22px;
+        padding: 10px;
+        border-radius: 10px;
+        grid-column: 1 / span 2;
+      }
+    }
+  }
+}
+
+.answers {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+
+  .answer_container {
+    width: 80%;
+    margin: 0 auto;
+
+    .answer_form {
+      width: 100%;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 5px solid rgba(207, 0, 0, 0.685);
+      background-color: rgba(245, 13, 13, 0.925);
+      border-radius: 5px;
+
+      input,
+      input::placeholder {
+        border: none;
+        width: 100%;
+        text-decoration: none;
+        background-color: transparent;
+        color: white;
+        font-size: 28px;
+      }
+    }
+  }
+}

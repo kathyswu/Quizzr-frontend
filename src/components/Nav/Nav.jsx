@@ -22,9 +22,10 @@ function Nav(props) {
       {user ? (
         <section>
           <Link to="/browse">Play</Link>
+          <Link to="/create"><i className="fas fa-plus-circle"></i> Create</Link>
           <Link to={`/user/${user._id}`}>{user.username}</Link>
           <img className="nav_avatar"src={user.avatar} alt={user.username} />
-          <Link to="" onClick={logout}>Logout</Link>
+          <Link to="" onClick={logout}><i className="fas fa-sign-out-alt"></i></Link>
         </section>
       ) : (
         <section>

@@ -1,17 +1,17 @@
 .gallery {
   width: 100%;
+  padding: 0px 50px;
+  margin: 0 auto;
 
   h5 {
     margin: 10px 0px 0px 0px;
   }
 
-  .cards__container {
+  .cards_container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 30px;
-    padding: 20px;
-    margin: 0 auto;
+    padding: 30px;
   }
 }
 
@@ -43,13 +43,13 @@
       rgba(96, 166, 204, 0.295)
     );
   }
-  .card__image {
+  .card_image {
     object-fit: cover;
     width: 200px;
     height: 200px;
   }
 
-  .card__header {
+  .card_header {
     position: absolute;
     z-index: 10;
     bottom: 15px;
@@ -57,12 +57,12 @@
     right: 0;
 
     p {
-      color: white;
-      font-size: 20px;
-      padding: 10px;
-      margin: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
 
       &:last-child {
+        line-height: 20px;
         padding: 0;
         color: rgba(255, 255, 255, 0.698);
         font-size: 18px;

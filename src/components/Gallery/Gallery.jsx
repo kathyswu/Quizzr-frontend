@@ -1,4 +1,4 @@
-import { gallery, cards__container } from "./Gallery.module.scss";
+import { gallery, cards_container } from "./Gallery.module.scss";
 
 import Card from "./Card";
 
@@ -10,7 +10,7 @@ function Gallery(props) {
   return (
     <div className={gallery}>
       <h5>{props.title}</h5>
-      <div className={cards__container}>
+      <div className={cards_container}>
         {generateCards(props.data)}
       </div>
     </div>

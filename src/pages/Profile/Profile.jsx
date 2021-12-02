@@ -50,11 +50,18 @@ function Profile({match: { params }, history}) {
           <img src={user.avatar} alt={user.username} />
           <span>{user.username}</span>
           <p>Quizzr Since {userSince.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</p>
-          <a className={edit_button} onClick={showForm}><i className="fas fa-edit"></i></a>
-          <form className={edit_avatar} id="edit_form" onSubmit={handleSubmit}>
-            <input type="text" name="avatar" defaultValue={user.avatar} onChange={event => setAvatar(event.target.value)} required/>
-            <input type="submit" value="Change Picture"/>
-          </form>
+          { user._id === params.id ? (
+            <div>
+              <a className={edit_button} onClick={showForm}><i className="fas fa-edit"></i></a>
+              <form className={edit_avatar} id="edit_form" onSubmit={handleSubmit}>
+                <input type="text" name="avatar" defaultValue={user.avatar} onChange={event => setAvatar(event.target.value)} required/>
+                <input type="submit" value="Change Picture"/>
+              </form>
+            </div>
+          ) : (
+            null
+          )
+          }
 
         </div>
         <div className={quiz_gradient_border}>

@@ -1,12 +1,12 @@
-import { card, card__header, card__image} from "./Gallery.module.scss";
+import { card, card_header, card_image} from "./Gallery.module.scss";
 
 import { Link } from "react-router-dom";
 
 function Card(props) {
   return (
     <Link to="/quizzes" className={card}>
-      <img className={card__image} src={props.thumbnail} alt={props.title} />
-      <div className={card__header}>
+      <img className={card_image} src={props.thumbnail} alt={props.title} />
+      <div className={card_header}>
         <p>{props.title}</p>
       </div>
     </Link>

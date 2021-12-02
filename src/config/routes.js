@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import { Home, Login, Register, Profile, Browse } from "../pages";
+import { Home, Login, Register, Profile, Browse, Create } from "../pages";
 
 import { useRecoilValue } from "recoil";
 import { loggedInState } from "../recoil/user";
@@ -18,6 +18,7 @@ function Routes(props) {
         <Switch>
           <Route path="/user/:id" component={Profile} />
           <Route path="/browse" component={Browse} />
+          <Route path="/create" component={Create} />
         </Switch>
       ) : (
         <Redirect to="/" />
