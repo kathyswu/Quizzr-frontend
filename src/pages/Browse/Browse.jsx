@@ -26,7 +26,6 @@ function Quizzes(props) {
             <h4>Want to play with others?</h4>
             <p> See who's playing now, and join them for some quiz game fun!</p>
             <Link to="/play/lobbies">Browse Lobbies</Link>
-            <Link to="/play/lobbies/lobby">See Lobby Page</Link>
             <p> Or want to play solo? No problem, find a quiz below!</p>
           </div>
 

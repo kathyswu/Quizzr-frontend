@@ -31,7 +31,7 @@ function Card(props) {
         ) : (
           <div></div>
         )}
-        <Link to="/play">
+        <Link to={`/play/${props.quiz._id}`}>
           <i className={`fas fa-play ${play_icon}`}></i>
         </Link>
       </div>

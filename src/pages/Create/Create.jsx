@@ -56,16 +56,14 @@ function Create(props) {
   };
 
   const updateQuestion = (index, data) => {
-    console.log(data);
-
     const updatedArray = questions;
 
-    if (data.text) {
+    if (typeof data.text === "string") {
       updatedArray[index].text = data.text;
     }
 
     if (data.options) {
-      if (data.options.content)
+      if (typeof data.options.content === "string")
         updatedArray[index].options[data.options.optionIndex].content =
           data.options.content;
       if (data.options.correct === false || data.options.correct === true)

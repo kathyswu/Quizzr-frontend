@@ -16,8 +16,8 @@ function Chat(props) {
       </h5>
       <div className={messages}>
         <div className={user_message}>
-          <img src={props.user[0].avatar} />
-          <p>{props.user[0].username} says:</p>
+          <img src={props.user.avatar} />
+          <p>{props.user.username} says:</p>
           <p>Lorem ipsum dolor inet est </p>
         </div>
       </div>

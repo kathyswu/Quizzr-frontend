@@ -9,6 +9,15 @@ class QuizModel {
     return fetch(url).then((response) => response.json());
   }
 
+  /** Find a single quiz
+   * @description sends a get request to find a single quiz
+   * @param {string} id
+   * @returns
+   */
+  static findOne(id) {
+    return fetch(`${url}/${id}`).then((response) => response.json());
+  }
+
   /** Find users quizzes
    * @description fetches only the quizzes made by the user in the db
    * @returns json promise

@@ -86,6 +86,17 @@
         align-items: center;
         justify-content: center;
         border: 5px solid rgba(v.$highlight, 0.3);
+        cursor: pointer;
+
+        &.right {
+          background: green;
+          cursor: not-allowed;
+        }
+
+        &.wrong {
+          background: red;
+          cursor: not-allowed;
+        }
 
         p {
           font-size: 2em;
@@ -109,6 +120,7 @@
       background: rgba(darken(v.$base, 10%), 50%);
       width: 100%;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
 
@@ -210,6 +222,21 @@
         max-width: 80%;
         clip-path: circle(40% at 50% 50%);
       }
+      button {
+        padding: 15px;
+        border: 2px solid v.$highlight;
+        background: darken(v.$highlight, 10%);
+        color: black;
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 20px;
+        border-radius: 20px;
+
+        a {
+          text-decoration: none;
+          color: black;
+        }
+      }
     }
 
     .rooms_border {
@@ -220,13 +247,19 @@
       overflow: auto;
       display: grid;
       grid-template-columns: auto;
-      grid-template-rows: auto;
+      grid-auto-rows: minmax(100px, 200px);
       gap: 10px;
 
+      a {
+        text-decoration: none;
+        height: 100%;
+        cursor: pointer;
+      }
       .room {
         padding: 50px;
         background: rgba(255, 255, 255, 0.6);
         width: 80%;
+        max-height: 100%;
         margin: 20px auto;
         border-radius: 20px;
         display: flex;
@@ -236,6 +269,7 @@
           color: black;
           font-weight: 600;
           font-size: 1.5em;
+          line-height: 1.5em;
         }
       }
     }
@@ -243,7 +277,7 @@
 }
 
 // Individual Lobby - Waiting for Game Page
-.lobby {
+.lobby_page {
   .lobby_container {
     display: grid;
     font-family: "Outfit", sans-serif;

@@ -1,5 +1,5 @@
 // React imports
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // Sass classes
 import { gradient_border } from "../Browse/Browse.module.scss";
@@ -11,33 +11,20 @@ import {
   game_container,
   right_container,
   stat_container,
-  chat_container,
   answers_container,
   answer,
+  right,
+  wrong,
   question_box,
 } from "./Play.module.scss";
 
 // Components
 import Chat from "../../components/Chat/Chat";
 
-const user = [
-  {
-    username: "username1",
-    avatar: "https://i.imgur.com/B84tGhT.jpg",
-  },
-  {
-    username: "username2",
-    avatar: "https://i.imgur.com/B84tGhT.jpg",
-  },
-  {
-    username: "username3",
-    avatar: "https://i.imgur.com/B84tGhT.jpg",
-  },
-  {
-    username: "username4",
-    avatar: "https://i.imgur.com/B84tGhT.jpg",
-  },
-];
+// Hooks
+import useUsers from "../../hooks/useUsers";
+import useQuizzes from "../../hooks/useQuizzes";
+import QuizModel from "../../models/quiz";
 
 const question = [
   {
@@ -64,51 +51,91 @@ const question = [
 ];
 
 function Play(props) {
+  const [user, setUser] = useUsers();
+  const [questionText, setQuestionText] = useState("");
+  const [options, setOptions] = useState([]);
+  const [index, setIndex] = useState(0);
+  const [totalQuestions, setTotalQuestions] = useState(0);
+
+  const [questionsRight, setQuestionsRight] = useState(0);
+
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const questions = useRef(null);
+
+  useEffect(function () {
+    QuizModel.findOne(props.match.params.id).then((json) => {
+      setTotalQuestions(json.quiz.questions.length);
+      questions.current = json.quiz.questions;
+      setQuestionText(json.quiz.questions[index].text);
+      setOptions(json.quiz.questions[index].options);
+    });
+  }, []);
+
+  const nextQuestion = () => {
+    setSelectedOption(null);
+    setIndex((prev) => ++prev);
+  };
+
+  const selectOption = (i) => {
+    if (selectedOption === null) setSelectedOption(i);
+
+    if (questions.current[index].options[i].correct) {
+      setQuestionsRight((prev) => ++prev);
+    }
+
+    setTimeout(() => nextQuestion(), 2000);
+  };
+
+  console.log(questionsRight);
+
+  useEffect(() => {
+    if (index > 0 && index < questions.current.length) {
+      setQuestionText(questions.current[index].text);
+      setOptions(questions.current[index].options);
+    }
+  }, [index, questions]);
+
   return (
     <div className={play}>
       <div className={gradient_border}>
         <div className={play_container}>
           <section className={users_container}>
             <div className={player}>
-              <img src={user[0].avatar} alt={user[0].username} />
-              <p>{user[0].username}</p>
-            </div>
-            <div className={player}>
-              <img src={user[1].avatar} alt={user[1].username} />
-              <p>{user[1].username}</p>
-            </div>
-            <div className={player}>
-              <img src={user[2].avatar} alt={user[2].username} />
-              <p>{user[2].username}</p>
-            </div>
-            <div className={player}>
-              <img src={user[3].avatar} alt={user[3].username} />
-              <p>{user[3].username}</p>
+              <img src={user.avatar} alt={user.username} />
+              <p>{user.username}</p>
             </div>
           </section>
           <section className={game_container}>
             <article className={question_box}>
-              <p>{question[0].text}</p>
+              <p>{questionText}</p>
             </article>
             <article className={answers_container}>
-              <div className={answer}>
-                <p>{question[0].options[0].content}</p>
-              </div>
-              <div className={answer}>
-                <p>{question[0].options[1].content}</p>
-              </div>
-              <div className={answer}>
-                <p>{question[0].options[2].content}</p>
-              </div>
-              <div className={answer}>
-                <p>{question[0].options[3].content}</p>
-              </div>
+              {options.map((option, i) => (
+                <div
+                  className={
+                    answer +
+                    " " +
+                    (selectedOption !== null
+                      ? option.correct
+                        ? right
+                        : wrong
+                      : "")
+                  }
+                  onClick={() => selectOption(i)}
+                >
+                  <p>{option.content}</p>
+                </div>
+              ))}
             </article>
           </section>
           <section className={right_container}>
             <article className={stat_container}>
               <p>
-                Question {question.length} / {question.length}
+                Question: {index + 1} / {totalQuestions}
+              </p>
+              <p>
+                Score: {questionsRight} / {totalQuestions}
               </p>
             </article>
             <Chat user={user} />

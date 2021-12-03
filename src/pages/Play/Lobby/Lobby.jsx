@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 // Sass classes
 import { gradient_border } from "../../Browse/Browse.module.scss";
 import {
-  lobby,
+  lobby_page,
   lobby_container,
   users_container,
   player,
@@ -14,6 +14,7 @@ import {
 
 // Components
 import Chat from "../../../components/Chat/Chat";
+import useLobby from "../../../hooks/useLobby";
 
 const user = [
   {
@@ -66,8 +67,10 @@ const quiz = [
 ];
 
 function Lobby(props) {
+  const lobby = useLobby(props.match.params.id);
+
   return (
-    <div className={lobby}>
+    <div className={lobby_page}>
       <div className={gradient_border}>
         <main className={lobby_container}>
           <section className={users_container}>

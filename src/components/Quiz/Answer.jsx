@@ -30,20 +30,23 @@ function Answer(props) {
     <div className={answer_container}>
       <form
         className={`${answer_form} ${correct ? right : wrong}`}
-        onClick={(e) =>
+        onClick={(e) => {
           props.update(props.questionIndex, {
             options: {
               optionIndex: props.optionIndex,
               correct: !props.correct,
             },
-          })
-        }
+          });
+        }}
       >
         <input
           type="text"
           name="text"
           placeholder="eg. Shakespeare"
           value={content}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
           onChange={(e) =>
             props.update(props.questionIndex, {
               options: {
