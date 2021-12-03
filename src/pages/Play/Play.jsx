@@ -23,32 +23,7 @@ import Chat from "../../components/Chat/Chat";
 
 // Hooks
 import useUsers from "../../hooks/useUsers";
-import useQuizzes from "../../hooks/useQuizzes";
 import QuizModel from "../../models/quiz";
-
-const question = [
-  {
-    text: "Who wrote the famous English play 'Macbeth'?",
-    options: [
-      {
-        content: "Shakespeare",
-        correct: true,
-      },
-      {
-        content: "William",
-        correct: false,
-      },
-      {
-        content: "Hamlet",
-        correct: false,
-      },
-      {
-        content: "London",
-        correct: false,
-      },
-    ],
-  },
-];
 
 function Play(props) {
   const [user, setUser] = useUsers();

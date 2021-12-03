@@ -1,6 +1,3 @@
-// React imports
-import { useState, useEffect } from "react";
-
 // Sass classes
 import { gradient_border } from "../../Browse/Browse.module.scss";
 import {
@@ -8,7 +5,6 @@ import {
   lobby_container,
   users_container,
   player,
-  middle_container,
   game_info,
 } from "../Play.module.scss";
 

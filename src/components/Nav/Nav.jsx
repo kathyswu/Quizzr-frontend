@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 
 import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/user";
@@ -18,7 +17,7 @@ function Nav(props) {
     <div className="nav">
       <section>
         <Link to="/" className="logo">
-          <img src="https://i.imgur.com/spEqEvR.png" />
+          <img src="https://i.imgur.com/spEqEvR.png" alt="Quizzr logo" />
         </Link>
       </section>
       {user ? (

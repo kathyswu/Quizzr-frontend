@@ -44,6 +44,7 @@
     display: grid;
     grid-template-columns: 90%;
     grid-template-rows: 2fr 3fr;
+    overflow: auto;
 
     .question_box {
       background-color: rgba(v.$accent, 0.2);

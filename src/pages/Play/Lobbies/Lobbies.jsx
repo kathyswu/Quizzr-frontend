@@ -1,7 +1,3 @@
-// React imports
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
 // Sass classes
 import { gradient_border } from "../../Browse/Browse.module.scss";
 import {
@@ -10,7 +6,6 @@ import {
   user_container,
   rooms_border,
   room,
-  background,
 } from "../Play.module.scss";
 
 // Hooks
@@ -42,15 +37,8 @@ function Lobbies(props) {
     window.socket.emit("create-lobby");
   };
 
-  const joinLobby = (lobbyId) => {
-    window.socket.emit("join-lobby", lobbyId);
-
-    window.on("lobby", (pl) => {
-      if (pl.error === "full") return;
-      // TODO: Add error handling
-      else if (pl.lobbyId) {
-      }
-    });
+  const joinLobby = (e) => {
+    window.socket.emit("join-lobby");
   };
 
   return (
@@ -61,16 +49,13 @@ function Lobbies(props) {
             <img src={user[0].avatar} alt={user[0].username} />
             <p>{user[0].username}</p>
             <button onClick={createLobby}>Create Lobby</button>
-            <button>
-              <Link to="/play/lobbies/lobby">See Lobby Page</Link>
-            </button>
           </section>
           <section className={rooms_border}>
             {lobbies.map((lobby, index) => {
               return (
-                <article className={room} onClick={() => joinLobby(lobby[0])}>
-                  <p>{`${lobby[1].name}'s Lobby`}</p>
-                  <p>{lobby[1].users.length} / 4</p>
+                <article className={room} onClick={joinLobby}>
+                  <p>{`Lobby #${index + 1}`}</p>
+                  <p>{lobby[1].length} / 4</p>
                 </article>
               );
             })}

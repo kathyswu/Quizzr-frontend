@@ -1,6 +1,3 @@
-// React modules
-import { useState, useEffect } from "react";
-
 // Sass classes
 import {
   chat_container,
@@ -16,7 +13,7 @@ function Chat(props) {
       </h5>
       <div className={messages}>
         <div className={user_message}>
-          <img src={props.user.avatar} />
+          <img src={props.user.avatar} alt={props.user.username} />
           <p>{props.user.username} says:</p>
           <p>Lorem ipsum dolor inet est </p>
         </div>

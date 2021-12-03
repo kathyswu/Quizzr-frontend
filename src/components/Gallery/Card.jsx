@@ -13,13 +13,9 @@ import {
 
 // Hooks
 import useUsers from "../../hooks/useUsers";
-import useQuizzes from "../../hooks/useQuizzes";
-
-// Models
-import QuizModel from "../../models/quiz";
 
 function Card(props) {
-  const [user, setUser] = useUsers();
+  const [user] = useUsers();
 
   return (
     <div className={card}>

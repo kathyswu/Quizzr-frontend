@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 import {
-  answers,
   answer_container,
   answer_form,
   right,

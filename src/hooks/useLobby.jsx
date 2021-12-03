@@ -14,7 +14,7 @@ function useLobby(id) {
     return () => {
       // window.socket.stop("lobby");
     };
-  }, []);
+  }, [id]);
 
   return lobby;
 }
