@@ -4,3 +4,6 @@ export { default as Register } from "./auth/Register";
 export { default as Profile } from "./Profile/Profile";
 export { default as Browse } from "./Browse/Browse";
 export { default as Create } from "./Create/Create";
+export { default as Play } from "./Play/Play";
+export { default as Lobbies } from "./Play/Lobbies/Lobbies";
+export { default as Lobby } from "./Play/Lobby/Lobby";

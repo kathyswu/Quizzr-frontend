@@ -2,6 +2,7 @@
   width: 100%;
   padding: 0px 50px;
   margin: 0 auto;
+  overflow: auto;
 
   h5 {
     margin: 10px 0px 0px 0px;
@@ -21,7 +22,33 @@
   position: relative;
   box-shadow: 2px 7px 10px 3px rgba(0, 0, 0, 0.26);
   transition: 0.2s ease-in-out;
-  cursor: pointer;
+
+  .buttons {
+    position: absolute;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 8px;
+    font-family: "Outfit", sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    width: 100%;
+  }
+
+  .delete_icon {
+    cursor: pointer;
+    color: #fff;
+    text-shadow: 0 0 3px #fff, 0 0 15px #fff;
+    padding: 10px 5px;
+  }
+
+  .play_icon {
+    color: rgb(33, 190, 72);
+    text-shadow: 0 0 3px rgb(33, 190, 72), 0 0 10px rgb(33, 190, 72);
+    padding: 10px 5px;
+    cursor: pointer;
+  }
 
   &:hover {
     transform: rotateX(5deg) rotateY(8deg) rotateZ(-2deg) translateX(-3px)

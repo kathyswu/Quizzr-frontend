@@ -1,14 +1,20 @@
-import { useState, useEffect } from "react";
+// React imports
+import { useState } from "react";
 
+// Sass classes
 import {
   gradient_border,
   quizzes_container,
 } from "../Browse/Browse.module.scss";
 import { create, create_form } from "./Create.module.scss";
 
+// Models
 import QuizModel from "../../models/quiz";
+
+// Components
 import Question from "../../components/Quiz/Question";
 
+// Hooks
 import useUsers from "../../hooks/useUsers";
 
 function Create(props) {
@@ -20,7 +26,6 @@ function Create(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log({ title, category, thumbnail, questions, user: user._id });
     QuizModel.create({
       title,
       category,
@@ -87,7 +92,7 @@ function Create(props) {
               onChange={(e) => setThumbnail(e.target.value)}
             />
 
-            <input type="submit" value="submit" />
+            <input type="submit" value="Submit" />
           </form>
         </div>
         <p> Add questions by clicking the "+" button. </p>

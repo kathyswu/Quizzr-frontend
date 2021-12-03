@@ -1,11 +1,14 @@
+// Sass classes
 import { gallery, cards_container } from "./Gallery.module.scss";
 
+// Components
 import Card from "./Card";
 
 function Gallery(props) {
   const generateCards = (quizzes) => {
     return quizzes.map((quiz) => (
-      <Card {...quiz} key={props.title + quiz._id} />
+      //<Card {...quizzes} key={props.title + quiz._id} />
+      <Card quiz={quiz} key={props.title + quiz._id} />
     ));
   };
 

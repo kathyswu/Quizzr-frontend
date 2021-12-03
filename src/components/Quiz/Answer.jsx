@@ -21,7 +21,6 @@ function Answer(props) {
 
   useEffect(
     function () {
-      console.log("yo yo yo", props.correct);
       setCorrect(props.correct);
     },
     [props.correct]

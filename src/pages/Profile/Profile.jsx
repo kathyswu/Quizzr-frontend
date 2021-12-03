@@ -3,7 +3,7 @@ import {
   profile,
   info_gradient_border,
   quiz_gradient_border,
-  menu,
+  quiz_inner_container,
   edit_button,
   edit_avatar,
 } from "./Profile.module.scss";
@@ -21,10 +21,11 @@ import UserModel from "../../models/user";
 
 // Components
 import Gallery from "../../components/Gallery/Gallery";
+import QuizModel from "../../models/quiz";
 
 function Profile({ match: { params }, history }) {
   const [user, setUser] = useUsers();
-  const [quizzes, fetchQuizzes] = useQuizzes();
+  const [quizzes, setQuizzes] = useState([]);
   const [avatar, setAvatar] = useState("");
 
   const userSince = new Date(user.createdAt);
@@ -38,11 +39,20 @@ function Profile({ match: { params }, history }) {
     [params.id]
   );
 
+  useEffect(
+    function () {
+      QuizModel.userQuizzes(params.id).then((json) => {
+        setQuizzes(json.quizzes);
+      });
+    },
+    [quizzes]
+  );
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const test = new Image();
+    const testPic = new Image();
 
-    test.onload = () => {
+    testPic.onload = () => {
       UserModel.update(params.id, {
         avatar,
       }).then((json) => {
@@ -51,7 +61,7 @@ function Profile({ match: { params }, history }) {
       });
     };
 
-    test.onerror = (e) => {
+    testPic.onerror = (e) => {
       UserModel.update(params.id, {
         avatar: "https://i.imgur.com/B84tGhT.jpg",
       }).then((json) => {
@@ -60,7 +70,7 @@ function Profile({ match: { params }, history }) {
       });
     };
 
-    test.src = avatar;
+    testPic.src = avatar;
   };
 
   const showForm = (event) => {
@@ -103,12 +113,14 @@ function Profile({ match: { params }, history }) {
         ) : null}
       </div>
       <div className={quiz_gradient_border}>
-        <Gallery
-          title={`Quizzes by ${user.username}`}
-          data={quizzes.filter((quiz) => quiz.user === params.id)}
-        />
+        <div className={quiz_inner_container}>
+          {/* <Gallery
+            title={`Quizzes by ${user.username}`}
+            data={quizzes.filter((quiz) => quiz.user === params.id)}
+          /> */}
+          <Gallery title={`Quizzes by ${user.username}`} data={quizzes} />
+        </div>
       </div>
-      <div className={menu}></div>
     </div>
   );
 }

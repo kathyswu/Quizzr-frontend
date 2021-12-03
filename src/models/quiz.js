@@ -9,6 +9,14 @@ class QuizModel {
     return fetch(url).then((response) => response.json());
   }
 
+  /** Find users quizzes
+   * @description fetches only the quizzes made by the user in the db
+   * @returns json promise
+   */
+  static userQuizzes(id) {
+    return fetch(`${url}/userQuizzes`).then((response) => response.json());
+  }
+
   /** Create a new quiz
    * @description sends a post request creating a new quiz
    * @param {*} data

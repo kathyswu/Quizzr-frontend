@@ -1,0 +1,356 @@
+@use "../../variables" as v;
+
+// Play Game Page
+.play {
+  .play_container {
+    display: grid;
+    font-family: "Outfit", sans-serif;
+    grid-template-columns: 1fr 5fr 2fr;
+    grid-template-rows: 100%;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    width: 100%;
+    height: 100vh;
+    border-radius: 10px;
+    max-height: calc(100vh - 100px);
+    overflow: hidden;
+  }
+
+  // Left section holds users
+  .users_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    border-right: 4px solid;
+    border-image: linear-gradient(
+        to top,
+        v.$accent,
+        rgba(255, 255, 25, 0.623),
+        lighten(v.$accent, 10%)
+      )
+      1;
+
+    .player {
+      img {
+        max-width: 50%;
+        clip-path: circle(40% at 50% 50%);
+      }
+    }
+  }
+
+  // Middle section holds quiz (Q&A)
+  .game_container {
+    display: grid;
+    grid-template-columns: 90%;
+    grid-template-rows: 2fr 3fr;
+
+    .question_box {
+      background-color: rgba(v.$accent, 0.2);
+      width: 100%;
+      margin: 50px 30px;
+      padding: 20px;
+      color: rgb(228, 228, 228);
+      font-weight: 800;
+      font-size: 3em;
+      border: 6px solid;
+      border-image: linear-gradient(
+          to top,
+          v.$accent,
+          rgba(255, 255, 25, 0.623),
+          lighten(v.$accent, 10%)
+        )
+        1;
+
+      p {
+        padding: 20px;
+      }
+    }
+
+    .answers_container {
+      width: 100%;
+      margin-top: 20px;
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-bottom: 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 50px;
+
+      .answer {
+        background: rgba(v.$highlight, 0.5);
+        width: 100%;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 5px solid rgba(v.$highlight, 0.3);
+
+        p {
+          font-size: 2em;
+          font-weight: 500;
+          letter-spacing: 2px;
+          text-align: center;
+          padding: 20px;
+          color: rgb(228, 228, 228);
+        }
+      }
+    }
+  }
+
+  // Right section holds stats and chat
+  .right_container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+
+    .stat_container {
+      background: rgba(darken(v.$base, 10%), 50%);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+// Chat container inside Play Game Page
+.chat_container {
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  padding: 20px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 75% 15%;
+
+  h5 {
+    color: black;
+    font-size: 2em;
+    border-bottom: 3px solid dimgray;
+    padding-bottom: 10px;
+  }
+
+  // Message populating container
+  .messages {
+    padding: 10px;
+
+    // Each messsage
+    .user_message {
+      display: grid;
+      grid-template-columns: 25% 75%;
+      grid-template-rows: 30% 80%;
+      justify-content: center;
+      align-content: flex-start;
+      text-align: left;
+      gap: 5px;
+      margin-top: 10px;
+
+      // User avatar
+      img {
+        grid-row: 1 / span 2;
+        max-width: 100%;
+        clip-path: circle(40% at 50% 50%);
+        margin-right: 10px;
+        align-self: flex-start;
+      }
+      p {
+        grid-column: 2;
+        color: dimgray;
+      }
+      p:nth-child(2) {
+        align-self: center;
+      }
+    }
+  }
+  // Chat input text box
+  input[type="text"] {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid rgba(158, 158, 158, 0.541);
+  }
+}
+
+// Browse for all lobbies - Lobbies page
+.lobbies_page {
+  .lobbies_container {
+    display: grid;
+    font-family: "Outfit", sans-serif;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 100%;
+    background: linear-gradient(to right, #0f0c29ea, #302b63e1, #24243ee1);
+    width: 100%;
+    height: 100vh;
+    border-radius: 10px;
+    max-height: calc(100vh - 100px);
+    overflow: hidden;
+
+    .user_container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 20px;
+      border-right: 5px solid;
+      border-image: linear-gradient(
+          to top,
+          v.$accent,
+          rgba(255, 255, 25, 0.623),
+          lighten(v.$accent, 10%)
+        )
+        1;
+      img {
+        max-width: 80%;
+        clip-path: circle(40% at 50% 50%);
+      }
+    }
+
+    .rooms_border {
+      margin: 5%;
+      border-radius: 20px;
+      background: rgba(184, 197, 199, 0.2);
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      overflow: auto;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      gap: 10px;
+
+      .room {
+        padding: 50px;
+        background: rgba(255, 255, 255, 0.6);
+        width: 80%;
+        margin: 20px auto;
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-around;
+
+        p {
+          color: black;
+          font-weight: 600;
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+}
+
+/* Bokeh Effect by Louis Hoebregts 
+  @Mamboleoo on CodePen */
+.background {
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
+}
+$particleSize: 20vmin;
+$animationDuration: 6s;
+$amount: 40;
+.background span {
+  width: $particleSize;
+  height: $particleSize;
+  border-radius: $particleSize;
+  backface-visibility: hidden;
+  position: absolute;
+  animation-name: move;
+  animation-duration: $animationDuration;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: -10;
+  $colors: (#e7a82183, #e45a84, #ffacac, #4e42b986);
+  @for $i from 1 through $amount {
+    &:nth-child(#{$i}) {
+      color: nth($colors, random(length($colors)));
+      top: random(100) * 1%;
+      left: random(100) * 1%;
+      animation-duration: (random($animationDuration * 10) / 10) * 1s + 10s;
+      animation-delay: random(($animationDuration + 10s) * 10) / 10 * -1s;
+      transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
+      $blurRadius: (random() + 0.5) * $particleSize * 0.5;
+      $x: if(random() > 0.5, -1, 1);
+      box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
+    }
+  }
+}
+
+@keyframes move {
+  100% {
+    transform: translate3d(0, 0, 1px) rotate(360deg);
+  }
+}
+
+// Individual Lobby - Waiting for Game Page
+.lobby {
+  .lobby_container {
+    display: grid;
+    font-family: "Outfit", sans-serif;
+    grid-template-columns: 1fr 4fr 2fr;
+    grid-template-rows: 100%;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    width: 100%;
+    height: 100vh;
+    border-radius: 10px;
+    max-height: calc(100vh - 100px);
+    overflow: hidden;
+
+    // Left section holding users
+    .users_container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-evenly;
+      border-right: 4px solid;
+      border-image: linear-gradient(
+          to top,
+          v.$accent,
+          rgba(255, 255, 25, 0.623),
+          lighten(v.$accent, 10%)
+        )
+        1;
+
+      .player {
+        img {
+          max-width: 50%;
+          clip-path: circle(40% at 50% 50%);
+        }
+      }
+    }
+    .game_info {
+      background: rgba(138, 15, 15, 0.123);
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      justify-items: center;
+      align-content: space-evenly;
+
+      img {
+        max-width: 80%;
+        margin-top: 50px;
+        border: 2px solid v.$highlight;
+      }
+
+      p {
+        font-size: 1.5em;
+      }
+
+      a {
+        display: block;
+        padding: 20px;
+        width: 60%;
+        background-color: v.$accent;
+        border-radius: 50px;
+        cursor: pointer;
+        color: black;
+        font-weight: 600;
+        font-size: 1.3em;
+      }
+    }
+  }
+}
