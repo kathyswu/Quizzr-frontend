@@ -45,33 +45,34 @@ Current ready features:
 
 ## Screenshots
 
-![Landing Page](./main_app/static/images/demo2.png)
-![Sign Up](./main_app/static/images/demo8.png)
-![About Developers](./main_app/static/images/demo3.png)
-![City Page](./main_app/static/images/demo4.png)
-![City Posts](./main_app/static/images/demo7.png)
-![Add Posts](./main_app/static/images/demo5.png)
-![Post](./main_app/static/images/demo9.png)
-![Post Comments](./main_app/static/images/demo10.png)
-![Post Edit](./main_app/static/images/demo12.png)
-![Post Delete](./main_app/static/images/demo11.png)
-![User Profile](./main_app/static/images/demo6.png)
+![Landing Page](./public/website_images/quizzr0.png)
+![Sign Up](./public/website_images/quizzr1.png)
+![Log In](./public/website_images/quizzr1_1.png)
+![Profile Page](./public/website_images/quizzr2.png)
+![Browse Quizzes Page](./public/website_images/quizzr3.png)
+![Browse Quizzes Quiz Sections](./public/website_images/quizzr4.png)
+![Lobbies Page](./public/website_images/quizzr5.png)
+![Waiting in Lobby](./public/website_images/quizzr6.png)
+![Create Quizzes Page](./public/website_images/quizzr7.png)
+![Create Question and Answer](./public/website_images/quizzr8.png)
+![Play Quiz Page](./public/website_images/quizzr9.png)
+![Play Quiz Answer Page](./public/website_images/quizzr11.png)
 
 ## Planning
 
-![Proposal Document](/main_app/static/images/proposal.png)
-![Proposal Theme](/main_app/static/images/proposal_theme.png)
-![User Flow](./main_app/static/images/userflow.png)
-![Wireframe1](./main_app/static/images/wireframe1.png)
-![Wireframe2](./main_app/static/images/wireframe2.png)
-![Trello Board](./main_app/static/images/planning5.png)
+![Wireframe1](./public/website_images/planning2.png)
+![Wireframe2](./public/website_images/planning3.png)
+![Wireframe3](./public/website_images/planning4.png)
+![Wireframe4](./public/website_images/planning5.png)
+![Wireframe5](./public/website_images/planning6.png)
+![Wireframe6](./public/website_images/planning7.png)
+![ERD Diagram](./public/website_images/planning8.png)
+![Sprint1](./public/website_images/planning9.png)
+![Sprint2](./public/website_images/planning10.png)
 
 ## User Stories
 
-![User Stories](./main_app/static/images/planning1.png)
-![User Stories](./main_app/static/images/planning2.png)
-![User Stories](./main_app/static/images/planning3.png)
-![User Stories](./main_app/static/images/planning4.png)
+![User Stories](./public/website_images/planning1.png)
 
 ## Project Status
 

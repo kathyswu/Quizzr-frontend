@@ -29,7 +29,7 @@ function Routes(props) {
           <Route path="/user/:id" component={Profile} />
           <Route exact path="/browse" component={Browse} />
           <Route exact path="/create" component={Create} />
-          <Route path="/play/lobbies/:id" component={Lobby} />
+          <Route path="/play/lobbies/lobby" component={Lobby} />
           <Route path="/play/lobbies" component={Lobbies} />
           <Route path="/play/:id" component={Play} />
         </Switch>

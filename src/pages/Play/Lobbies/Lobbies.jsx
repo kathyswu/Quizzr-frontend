@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // Sass classes
 import { gradient_border } from "../../Browse/Browse.module.scss";
 import {
@@ -49,6 +51,9 @@ function Lobbies(props) {
             <img src={user[0].avatar} alt={user[0].username} />
             <p>{user[0].username}</p>
             <button onClick={createLobby}>Create Lobby</button>
+            <Link to="/play/lobbies/lobby">
+              <button>See a Lobby</button>
+            </Link>
           </section>
           <section className={rooms_border}>
             {lobbies.map((lobby, index) => {

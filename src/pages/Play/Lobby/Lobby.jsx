@@ -87,7 +87,7 @@ function Lobby(props) {
               <p>{user[3].username}</p>
             </div>
           </section>
-          <Chat user={user} />
+          <Chat user={user[0]} />
           <section className={game_info}>
             <img src={quiz[0].thumbnail} alt="Quiz Logo" />
             <p>{quiz[0].title}</p>
