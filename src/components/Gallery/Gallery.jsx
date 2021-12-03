@@ -6,9 +6,14 @@ import Card from "./Card";
 
 function Gallery(props) {
   const generateCards = (quizzes) => {
-    return quizzes.map((quiz) => (
-      //<Card {...quizzes} key={props.title + quiz._id} />
-      <Card quiz={quiz} key={props.title + quiz._id} />
+    return quizzes.map((quiz, index) => (
+      <Card
+        quiz={quiz}
+        index={index}
+        key={props.title + quiz._id}
+        handleDelete={props.handleDelete}
+        hasDelete={props.hasDelete}
+      />
     ));
   };
 

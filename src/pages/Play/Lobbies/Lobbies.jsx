@@ -40,7 +40,7 @@ function Lobbies(props) {
             <img src={user[0].avatar} alt={user[0].username} />
             <p>{user[0].username}</p>
           </section>
-          <section className={`${background} ${rooms_border}`}>
+          <section className={rooms_border}>
             <span></span>
             <span></span>
             <span></span>

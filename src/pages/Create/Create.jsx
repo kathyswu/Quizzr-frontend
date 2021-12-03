@@ -26,15 +26,33 @@ function Create(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    QuizModel.create({
-      title,
-      category,
-      thumbnail,
-      questions,
-      user: user._id,
-    }).then((json) => {
-      props.history.push("/browse");
-    });
+    const testPic = new Image();
+
+    testPic.onload = () => {
+      QuizModel.create({
+        title,
+        category,
+        thumbnail,
+        questions,
+        user: user._id,
+      }).then((json) => {
+        props.history.push("/browse");
+      });
+    };
+
+    testPic.onerror = (e) => {
+      QuizModel.create({
+        title,
+        category,
+        thumbnail: "https://i.imgur.com/3FjTVyT.png",
+        questions,
+        user: user._id,
+      }).then((json) => {
+        props.history.push("/browse");
+      });
+    };
+
+    testPic.src = thumbnail;
   };
 
   const updateQuestion = (index, data) => {

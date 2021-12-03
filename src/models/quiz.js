@@ -14,7 +14,9 @@ class QuizModel {
    * @returns json promise
    */
   static userQuizzes(id) {
-    return fetch(`${url}/userQuizzes`).then((response) => response.json());
+    return fetch(`${url}/userQuizzes?id=${id}`).then((response) =>
+      response.json()
+    );
   }
 
   /** Create a new quiz

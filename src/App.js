@@ -8,8 +8,14 @@ import Nav from "./components/Nav/Nav";
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <Routes />
+      <div className="background">
+        <span />
+        <span />
+        <span />
+        <span />
+        <Nav />
+        <Routes />
+      </div>
     </div>
   );
 }

@@ -25,10 +25,18 @@ import QuizModel from "../../models/quiz";
 
 function Profile({ match: { params }, history }) {
   const [user, setUser] = useUsers();
-  const [quizzes, setQuizzes] = useState([]);
+  const [quizzes, setQuizzes] = useQuizzes(params.id);
   const [avatar, setAvatar] = useState("");
 
   const userSince = new Date(user.createdAt);
+
+  const handleDelete = (quizId, index) => {
+    QuizModel.delete(quizId).then((json) => {
+      let tempQuizzes = [...quizzes];
+      tempQuizzes.splice(index, 1);
+      setQuizzes(tempQuizzes);
+    });
+  };
 
   useEffect(
     function () {
@@ -39,14 +47,11 @@ function Profile({ match: { params }, history }) {
     [params.id]
   );
 
-  useEffect(
-    function () {
-      QuizModel.userQuizzes(params.id).then((json) => {
-        setQuizzes(json.quizzes);
-      });
-    },
-    [quizzes]
-  );
+  useEffect(function () {
+    QuizModel.userQuizzes(params.id).then((json) => {
+      setQuizzes(json.quizzes);
+    });
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -114,11 +119,12 @@ function Profile({ match: { params }, history }) {
       </div>
       <div className={quiz_gradient_border}>
         <div className={quiz_inner_container}>
-          {/* <Gallery
+          <Gallery
             title={`Quizzes by ${user.username}`}
-            data={quizzes.filter((quiz) => quiz.user === params.id)}
-          /> */}
-          <Gallery title={`Quizzes by ${user.username}`} data={quizzes} />
+            data={quizzes}
+            handleDelete={handleDelete}
+            hasDelete
+          />
         </div>
       </div>
     </div>
